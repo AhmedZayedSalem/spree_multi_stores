@@ -1,0 +1,27 @@
+<div class="row">
+  <div data-hook="branch_form_fields" class="col-md-6">
+    <div data-hook="branches">
+      
+      <div class="form-group" data-hook="name">
+        <%= f.label :name, Spree.t(:name) %>
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
+
+      <div class="form-group" data-hook="address">
+        <%= f.label :address, Spree.t(:address) %>
+        <%= f.text_field :address, :class => 'form-control' %>
+      </div>
+
+      <div class="form-group" data-hook="phone_number">
+        <%= f.label :phone_number, Spree.t(:phone_number) %>
+        <%= f.text_field :phone_number, :class => 'form-control' %>
+      </div>
+
+      <div class="form-group" data-hook="opening_hours">
+        <%= f.label :opening_hours, Spree.t(:opening_hours) %>
+       <%= f.text_field :opening_hours, :class => 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,20 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+
+  spree:
+     shops: Shops
+     new_shop: New Shop
+     new_branch: New Branch
+     branch_placeholder: Choose branches
+     new_arrival_default: New Arrival Product
+     on_sale_default: Product is on Sale
+     on_trial_default: Product is available for Trial before buying by the customer
+     returnable_default: Product can be returned back
+     sell_with_us: Sell With Us
+     shop_name: Shop Name
+  devise:
+     retailer_registrations:
+        signed_up: Welcome! You have signed up successfully. 

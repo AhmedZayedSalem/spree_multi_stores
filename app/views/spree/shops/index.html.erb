@@ -1,0 +1,22 @@
+<h1>Hello Stores<h1>
+<% if @shops.any? %>
+  <div id="products" class="row" data-hook>
+    <% @shops.each do |shop| %>
+
+      <div id="product_<%= shop.id %>" class="col-md-3 col-sm-6 product-list-item" data-hook="products_list_item" itemscope itemtype="https://schema.org/Product">
+        <div class="panel panel-default">
+         
+            <div class="panel-body text-center product-body">
+              
+              <%= link_to truncate(shop.name, length: 50), shopp_path(shop)%>
+            </div>
+            <div class="panel-footer text-center">
+              
+            </div>
+          
+        </div>
+      </div>
+    <% end %>
+    <% reset_cycle("classes") %>
+  </div>
+<% end %>

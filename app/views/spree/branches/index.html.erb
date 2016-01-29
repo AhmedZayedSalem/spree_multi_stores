@@ -1,0 +1,50 @@
+<% if can? :update, @shop %>
+  <%= render partial: 'spree/shared/shop_tabs', locals: {current: :branches} %>
+<% end %>
+<%# Place for new branch form %>
+<div id="new_branch" data-hook></div>
+<% if @branches.any? %>
+  <table class="table sortable" data-sortable-link="<%= update_positions_shop_branches_path(@shop) %>">
+    <thead data-hook="branches_header">
+      <tr>
+        <th colspan="2"><%= Spree.t(:name) %></th>
+        <th><%= Spree.t(:address) %></th>
+        <th><%= Spree.t(:phone_number) %></th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @branches.each do |branch| %>
+      <tr id="<%= spree_dom_id branch %>" <%= 'style="color:red;"' if branch.deleted? %> data-hook="branches_row">
+        <td class="move-handle">
+          <% if can? :edit, branch %>
+            <span class="icon icon-move handle"></span>
+          <% end %>
+        </td>
+        <td><%= branch.name %></td>
+        <td><%= truncate(branch.address, length: 20) %></td>
+        <td><%= branch.phone_number %></td>
+        <td class="actions actions-2 text-right">
+          <%= link_to_edit(branch, no_text: true) if can?(:edit, branch) && !branch.deleted? %>
+          <%= link_to_delete(branch, no_text: true) if can?(:destroy, branch) && !branch.deleted? %>
+        </td>
+      </tr>
+      <% end %>
+      <% unless @shop.has_branches? %>
+        <tr>
+          <td colspan="5"><%= Spree.t(:none) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="no-objects-found alert alert-info">
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Branch)) %>,
+    <%= link_to(Spree.t(:add_one), spree.new_shop_branch_path(@shop)) if can? :create, Spree::Branch %>!
+  </div>
+<% end %>
+
+<% if can? :update, @shop %>
+  <%= button_link_to(Spree.t(:new_branch), spree.new_shop_branch_url(@shop), { remote: :true, icon: 'add', :'data-update' => 'new_shop', class: 'btn-success', id: 'new_var_link' }) if can? :create, Spree::Branch %>
+<% end %> 
+

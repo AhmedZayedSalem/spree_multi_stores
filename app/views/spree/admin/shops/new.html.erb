@@ -1,0 +1,36 @@
+<%= render :partial => 'spree/admin/shared/error_messages', :locals => { :target => @shop } %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:new_shop) %>
+<% end %>
+
+<%= form_for [:admin, @shop], :html => { :multipart => true } do |f| %>
+  <fieldset data-hook="new_shop">
+    <%= f.field_container :name, :class => ['form-group'] do %>
+      <%= f.label :name, Spree.t(:name) %> <span class="required">*</span>
+      <%= f.text_field :name, :class => 'form-control title' %>
+      <%= f.error_message_on :name %>
+    <% end %>
+
+    <div data-hook="new_shop_attrs" class="row">
+     
+      <div data-hook="new_shop_available_on" class="col-md-4">
+        <%= f.field_container :available_on, :class => ['form-group'] do %>
+          <%= f.label :available_on, Spree.t(:available_on) %>
+          <%= f.error_message_on :available_on %>
+          <%= f.text_field :available_on, :class => 'datepicker form-control' %>
+        <% end %>
+      </div>
+
+     
+
+    </div>
+
+    
+
+    <%= render :partial => 'spree/admin/shared/new_resource_links' %>
+
+  </fieldset>
+<% end %>
+
+

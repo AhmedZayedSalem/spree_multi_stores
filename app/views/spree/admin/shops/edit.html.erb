@@ -1,0 +1,15 @@
+<% content_for :page_actions do %>
+  <% if can?(:create, Spree::Shop) %>
+    <%= button_link_to Spree.t(:new_shop), new_object_url, { class: "btn-success", icon: 'add', id: 'admin_new_shop' } %>
+  <% end %>
+<% end %>
+
+<%= render partial: 'spree/admin/shared/shop_tabs', locals: {current: :details} %>
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @shop } %>
+
+<%= form_for [:admin, @shop], method: :put, html: { multipart: true } do |f| %>
+  <fieldset>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'spree/admin/shared/edit_resource_links' %>
+  </fieldset>
+<% end %>

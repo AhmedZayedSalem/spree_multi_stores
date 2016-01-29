@@ -1,0 +1,19 @@
+<% content_for :page_title do %>
+  <%= link_to Spree.t(:shops), shops_path %> /
+  <%= @shop.name %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <ul class="nav nav-pills nav-stacked" data-hook="shop_tabs">
+    <%= content_tag :li, class: ('active' if current == :details) do %>
+      <%= link_to_with_icon 'edit', Spree.t(:details), edit_shop_url(@shop) %>
+    <% end if can?(:update, @shop) %>
+    <%= content_tag :li, class: ('active' if current == :branches) do %>
+      <%= link_to_with_icon 'th-large', Spree.t(:branches), spree.shop_branches_url(@shop) %>
+    <% end if can?(:manage, Spree::Branch) %>
+    <%= content_tag :li, class: ('active' if current == :products) do %>
+      <%= link_to_with_icon 'th-large', Spree.t(:products),  spree.shop_products_url(@shop) %>
+    <% end if can?(:manage, Spree::Product) %>	 
+    
+  </ul>
+<% end %>

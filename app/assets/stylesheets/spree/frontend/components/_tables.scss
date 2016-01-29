@@ -1,0 +1,56 @@
+table.table {
+  thead {
+    th {
+      text-transform: uppercase;
+      font-size: $font-size-base - 3px;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      vertical-align: middle;
+      letter-spacing: 1px;
+
+      a {
+        .glyphicon {
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        vertical-align: middle;
+        .filterable {
+          font-size: 0.8em;
+          margin-left: 0.2em;
+          color: white; // hidden, but space is reserved for the icon
+          cursor: pointer;
+        }
+      }
+      &:hover td .filterable {
+        color: #666;
+      }
+    }
+  }
+}
+
+.table-active-filters {
+  display: none;
+  margin: -0.5em 0 0.9em 0;
+
+  .label {
+    display: inline-block;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 85%;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    span.icon {
+      margin: 0.3em 0 0 0.6em;
+      font-size: 80%;
+      cursor: pointer;
+    }
+  }
+}

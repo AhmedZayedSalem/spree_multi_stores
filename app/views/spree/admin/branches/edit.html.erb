@@ -1,0 +1,13 @@
+<%= render partial: 'spree/admin/shared/shop_tabs', locals: { current: :branches } %>
+
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @branch } %>
+
+<%= form_for [:admin, @shop, @branch] do |f| %>
+  <fieldset>
+    <div data-hook="admin_branch_edit_form">
+      <%= render partial: 'form', locals: { f: f } %>
+    </div>
+
+    <%= render partial: 'spree/admin/shared/edit_resource_links' %>
+  </fieldset>
+<% end %>

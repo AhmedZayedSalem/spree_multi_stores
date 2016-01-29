@@ -1,0 +1,17 @@
+<%= render partial: 'spree/shared/product_tabs', locals: { current: :variants } %>
+
+<%= render partial: 'spree/shared/error_messages', locals: { target: @variant } %>
+
+<%= form_for [@shop, @product, @variant] do |f| %>
+  <fieldset>
+    <div data-hook="variant_edit_form">
+      <%= render partial: 'form', locals: { f: f } %>
+    </div>
+
+   <div class="form-actions" data-hook="buttons">
+  <%= button Spree.t('actions.update'), 'refresh', 'submit', {class: 'btn-success'} %>
+  <span class="or"><%= Spree.t(:or) %></span>
+  <%= button_link_to Spree.t('actions.cancel'), shop_product_variants_url, :icon => 'delete' %>
+</div>
+  </fieldset>
+<% end %>

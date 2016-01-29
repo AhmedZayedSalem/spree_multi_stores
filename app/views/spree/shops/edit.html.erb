@@ -1,0 +1,10 @@
+
+<%= render partial: 'spree/shared/shop_tabs', locals: {current: :details} %>
+<%= render partial: 'spree/shared/error_messages', locals: { target: @shop } %>
+
+<%= form_for [@shop], method: :put, html: { multipart: true } do |f| %>
+  <fieldset>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'spree/shared/edit_resource_links' %>
+  </fieldset>
+<% end %>

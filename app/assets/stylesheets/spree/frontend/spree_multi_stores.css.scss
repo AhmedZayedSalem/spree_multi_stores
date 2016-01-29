@@ -1,0 +1,38 @@
+/*
+Placeholder manifest file.
+the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/frontend/all.css'
+
+ *= require jquery-ui/datepicker
+ *= require jquery-ui/autocomplete
+ *= require select2
+ *= require animate
+*/
+
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+@import 'components/sidebar';
+@import 'components/tables';
+@import 'components/labels';
+
+@import 'components/icons';
+@import 'components/buttons';
+@import 'components/wells';
+@import 'components/filters';
+@import 'components/panels';
+@import 'components/navigation';
+
+
+@import 'components/progress';
+@import 'components/spinner';
+
+@import 'sections/account';
+
+@import 'plugins/select2';
+@import 'plugins/jquery_ui';
+@import 'plugins/js_tree';
+
+
+@import 'shared/forms';
+

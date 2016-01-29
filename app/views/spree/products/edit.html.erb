@@ -1,0 +1,15 @@
+
+  <% if can?(:manage, Spree::Product) %>
+    <%= button_link_to Spree.t(:new_product), new_object_url, { class: "btn-success", icon: 'add', id: 'new_product' } %>
+  <% end %>
+
+
+<%= render partial: 'spree/shared/product_tabs', locals: {current: :details} %>
+<%= render partial: 'spree/shared/error_messages', locals: { target: @product } %>
+
+<%= form_for [@shop, @product], method: :put, html: { multipart: true } do |f| %>
+  <fieldset>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'spree/shared/edit_resource_links' %>
+  </fieldset>
+<% end %>
