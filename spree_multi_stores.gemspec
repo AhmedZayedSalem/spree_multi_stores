@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_multi_stores'
-  s.version     = '3.0.4'
+  s.version     = '3.0.5'
   s.summary     = 'TODO: Add gem summary here'
   s.description = 'TODO: Add (optional) gem description here'
   s.required_ruby_version = '>= 2.0.0'

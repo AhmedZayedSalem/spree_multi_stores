@@ -1,4 +1,4 @@
-<% if ((can?(:create, Spree::Product)) && @shop != nil) %>
+<% if (can?(:create, Spree::Product)) && @shop != nil %>
   <%= button_link_to Spree.t(:new_product), new_shop_product_url(@shop), { :class => "btn-success", :icon => 'add', :id => 'new_product' } %>
 <%= render partial: 'spree/shared/table_filter' %>
 <% end %>
