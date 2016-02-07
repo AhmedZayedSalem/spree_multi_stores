@@ -149,30 +149,7 @@
     </div>
 
   </div>
-  <div class="checkbox" data-hook="preference_new_arrival">
-    <%= label_tag :preferred_new_arrival do %>
-      <%= f.check_box :preferred_new_arrival %>
-      <%= Spree.t(:new_arrival_default) %>
-    <% end %>
-  </div>
-  <div class="checkbox" data-hook="preference_on_sale">
-    <%= label_tag :preferred_on_sale_default do %>
-      <%= f.check_box :preferred_on_sale %>
-      <%= Spree.t(:on_sale_default) %>
-    <% end %>
-  </div>
-  <div class="checkbox" data-hook="preference_on_trial">
-    <%= label_tag :preferred_on_trial_default do %>
-      <%= f.check_box :preferred_on_trial %>
-      <%= Spree.t(:on_trial_default) %>
-    <% end %>
-  </div>
-  <div class="checkbox" data-hook="preference_returnable">
-    <%= label_tag :preferred_returnable_default do %>
-      <%= f.check_box :preferred_returnable %>
-      <%= Spree.t(:returnable_default) %>
-    <% end %>
-  </div>
+ 
   <div data-hook="admin_product_form_taxons">
     <%= f.field_container :taxons, class: ['form-group'] do %>
       <%= f.label :taxon_ids, Spree.t(:taxons) %>
