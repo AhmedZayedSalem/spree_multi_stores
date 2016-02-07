@@ -208,6 +208,7 @@ $.fn.radioControlsVisibilityOfElement = function(dependentElementSelector){
 
 handle_date_picker_fields = function(){
   $('.datepicker').datepicker({
+    
     dateFormat: Spree.translations.date_picker,
     dayNames: Spree.translations.abbr_day_names,
     dayNamesMin: Spree.translations.abbr_day_names,
@@ -218,6 +219,8 @@ handle_date_picker_fields = function(){
     showOn: "focus"
   });
 
+
+
   // Correctly display range dates
   $('.date-range-filter .datepicker-from').datepicker('option', 'onSelect', function(selectedDate) {
     $(".date-range-filter .datepicker-to" ).datepicker( "option", "minDate", selectedDate );
@@ -227,8 +230,18 @@ handle_date_picker_fields = function(){
   });
 }
 
+handle_date_picker_fields_register = function(){
+  $('.datepickerreg').datepicker({
+    yearRange: "1900:2016",
+  changeMonth: true,
+      changeYear: true,
+    showOn: "focus"
+  });
+}
+
 $(document).ready(function(){
   handle_date_picker_fields();
+  handle_date_picker_fields_register(); 
   $(".observe_field").on('change', function() {
     target = $(this).data("update");
     $(target).hide();
@@ -275,9 +288,16 @@ $(document).ready(function(){
         },
         dataType: 'script',
         success: function(response) {
+          if(el.parents(".product-list-item"))
+            {
+              el.parents(".product-list-item").fadeOut('hide', function() {
+            $(this).remove();
+          });
+            } else if(el.parents("tr")){
           el.parents("tr").fadeOut('hide', function() {
             $(this).remove();
           });
+          }
         },
         error: function(response, textStatus, errorThrown) {
           show_flash('error', response.responseText);

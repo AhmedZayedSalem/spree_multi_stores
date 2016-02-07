@@ -15,6 +15,12 @@ en:
      returnable_default: Product can be returned back
      sell_with_us: Sell With Us
      shop_name: Shop Name
+     first_name: First Name
+     last_name: Last Name
+     birthdate: Birthdate
+     male: Male
+     female: Female
+     deals_subtext: I would like to register to Xtreme Dealz & receive up to 70% discounts.
   devise:
      retailer_registrations:
         signed_up: Welcome! You have signed up successfully. 

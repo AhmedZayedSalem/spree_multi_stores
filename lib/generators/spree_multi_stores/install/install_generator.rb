@@ -10,7 +10,7 @@ module SpreeMultiStores
       end
 
       def add_stylesheets
-        inject_into_file 'vendor/assets/stylesheets/spree/frontend/all.css', " *= require spree/frontend/spree_multi_stores\n", :before => /\*\//, :verbose => true
+        inject_into_file 'vendor/assets/stylesheets/spree/frontend/all.css', " *= require spree/frontend/spree_multi_stores.css.scss\n", :before => /\*\//, :verbose => true
         inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', " *= require spree/backend/spree_multi_stores\n", :before => /\*\//, :verbose => true
       end
 

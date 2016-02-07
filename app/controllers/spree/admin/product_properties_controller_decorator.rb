@@ -4,7 +4,9 @@ module Spree
        before_action :load_shop
        private
          def load_shop
-           @shop = Shop.friendly.find(@product.shop_id)  
+           if params[:shop_id] != nil
+             @shop = Shop.friendly.find(@product.shop_id)  
+           end
          end
     end
   end

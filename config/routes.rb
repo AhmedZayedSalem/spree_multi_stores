@@ -61,6 +61,8 @@ Spree::Core::Engine.routes.draw do
      end
   end
   namespace :admin do
+
+    
      resources :shops  do
        resources :branches do
          collection do

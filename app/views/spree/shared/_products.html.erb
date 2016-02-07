@@ -31,6 +31,13 @@
             <div class="panel-body text-center product-body">
               <%= link_to small_image(product, itemprop: "image"), url, itemprop: 'url' %><br/>
               <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
+          <% if params[:shop_id] != nil %>
+                <div class = "row text-center ">
+                <%= link_to_edit product, url: edit_shop_product_url(@shop,product), no_text: true, class: 'edit info' if can?(:update, @shop) && !product.deleted? %>
+                <%= link_to_clone product, no_text: true, class: 'clone info' if can?(:update, @shop) %>
+                <%= link_to_delete product, url: shop_product_url(@shop,product), no_text: true if can?(:update, @shop) && !product.deleted? %>
+               </div>
+          <% end %>
             </div>
             <div class="panel-footer text-center">
               <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">

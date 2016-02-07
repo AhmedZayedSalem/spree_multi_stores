@@ -124,10 +124,7 @@ module Spree
         # note: we only reset the product properties if we're receiving a post
         #       from the form on that tab
       
-        @product.set_preference(:new_arrival, params[:product][:preferred_new_arrival])
-        @product.set_preference(:on_sale, params[:product][:preferred_on_sale])
-        @product.set_preference(:on_trial, params[:product][:preferred_on_trial])
-        @product.set_preference(:returnable, params[:product][:preferred_returnable])
+
 
         return unless params[:clear_product_properties]
         params[:product] ||= {}
@@ -149,7 +146,7 @@ module Spree
           flash[:error] = Spree.t('notice_messages.product_not_cloned')
         end
 
-        redirect_to edit_product_url(@new)
+        redirect_to edit_shop_product_url(@shop,@new)
       end
 
       def stock
@@ -283,7 +280,7 @@ module Spree
       end
 
       def clone_object_url(resource)
-        clone_product_url resource
+        clone_shop_product_url(@shop,resource)
       end
       def flash_message_for(object, event_sym)
         resource_desc  = object.class.model_name.human

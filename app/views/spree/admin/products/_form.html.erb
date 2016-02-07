@@ -1,7 +1,9 @@
 <div data-hook="admin_product_form_fields">
 
   <div class="row">
-       <span id= "current-shop-id"><%= @shop.id%></span>
+    <% if params[:shop_id] != nil %>
+      <span id="current-shop-id"><%= @shop.id %></span>
+    <% end %>
     <div class="col-md-8" data-hook="admin_product_form_left">
       <div data-hook="admin_product_form_name">
         <%= f.field_container :name, class: ['form-group'] do %>
@@ -208,7 +210,7 @@
 
     <% end %>
   </div>
-
+ <% if params[:shop_id] != nil %>
   <div data-hook="admin_product_form_branches">
     <%= f.field_container :branches, class: ['form-group'] do %>
       <%= f.label :branch_ids, Spree.t(:branches) %>
@@ -228,7 +230,7 @@
 
     <% end %>
   </div>
-
+ <% end %>
   <div data-hook="admin_product_form_meta">
     <div data-hook="admin_product_form_meta_title">
       <%= f.field_container :meta_title, class: ['form-group'] do %>

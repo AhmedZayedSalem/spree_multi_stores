@@ -52,6 +52,7 @@ module Spree
         can [:read, :modify], Classification
         can [:read, :modify], Taxon
         can [:read, :modify], OptionType
+        can [:read, :update, :destroy], Spree.user_class, id: user.id
         can :display, Product
         can :display, Branch
       else
